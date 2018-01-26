@@ -24,7 +24,7 @@ public class Computation<T>: Bindable {
         return binder(action)
     }
 
-    func unique(by eq: @escaping (T, T) -> Bool) -> Computation<T> {
+    func distinct(by eq: @escaping (T, T) -> Bool) -> Computation<T> {
 
         return Computation<T>(
             compute: compute,
@@ -112,7 +112,7 @@ public extension Computation { // Combinators
 
 public extension Computation where T: Equatable {
 
-    public func unique() -> Computation<T> {
-        return unique(by: ==)
+    public func distinct() -> Computation<T> {
+        return distinct(by: ==)
     }
 }

@@ -113,7 +113,7 @@ class ComputationTests: XCTestCase {
         let bInt = Variable<Int>(5)
         let sumComp = Computation<Int>
             .combining(aInt, bInt, by: { $0 + $1 })
-            .unique()
+            .distinct()
 
         let exp = expectation(description: "notify1")
         exp.expectedFulfillmentCount = 3
@@ -145,7 +145,7 @@ class ComputationTests: XCTestCase {
         let bStruct = Variable<S>(S(id: 2))
         let sumComp = Computation<S>
             .combining(aStruct, bStruct, by: { $0.id > $1.id ? $0 : $1 })
-            .unique(by: { $0.id == $1.id })
+            .distinct(by: { $0.id == $1.id })
 
         let exp = expectation(description: "notify1")
         exp.expectedFulfillmentCount = 3
@@ -173,7 +173,7 @@ class ComputationTests: XCTestCase {
         let bInt = Variable<Int>(5)
         let sumComp = Computation<Int>
             .combining(aInt, bInt, by: { $0 + $1 })
-            .unique()
+            .distinct()
 
         let exp1 = expectation(description: "notify1")
         exp1.expectedFulfillmentCount = 2
