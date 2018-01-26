@@ -196,9 +196,36 @@ class ComputationTests: XCTestCase {
         }
     }
 
+    func testComputation_Combined3() {
+        // Arrange
+        let aInt = Variable<Int>(3)
+        let bInt = Variable<Int>(5)
+        let cInt = Variable<Int>(7)
+        let maxComp = Computation<Int>
+            .combining(aInt, bInt, cInt, by: { max($0, $1, $2) })
+
+        let exp = expectation(description: "notify1")
+        exp.expectedFulfillmentCount = 3
+
+        // Act
+        var values: [Int] = []
+        binding = maxComp.bind { (max) in
+            values.append(max)
+            exp.fulfill()
+        }
+
+        aInt.set(10)
+        cInt.set(12)
+
+        waitForExpectations(timeout: 0.1) { (error) in
+            XCTAssertNil(error)
+            XCTAssertEqual(maxComp.value, 12)
+            XCTAssertEqual(values, [7, 10, 12])
+        }
+    }
+
 
     // MARK: - Binding tests
-
 
     func testComputation_BindingCount_Depth1() {
         // Arrange

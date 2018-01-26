@@ -41,6 +41,9 @@ public class Computation<T>: Bindable {
                 return Binding(bindings: [binding])
         })
     }
+}
+
+public extension Computation { // Combinators
 
     public static func combining<A: Bindable, B: Bindable, T>(_ a: A, _ b: B, by combinator: @escaping (A.Element, B.Element) -> T) -> Computation<T> {
 
@@ -69,6 +72,40 @@ public class Computation<T>: Bindable {
                 })
 
                 return Binding(bindings: [aBinding, bBinding])
+        })
+    }
+
+    public static func combining<A: Bindable, B: Bindable, C: Bindable, T>(_ a: A, _ b: B, _ c: C, by combinator: @escaping (A.Element, B.Element, C.Element) -> T) -> Computation<T> {
+
+        return Computation<T>(
+
+            compute: {
+                return combinator(a.value, b.value, c.value)
+            },
+
+            binder: { (action) -> Binding in
+
+                var args: (A.Element?, B.Element?, C.Element?) = (nil, nil, nil)
+                let propagate: () -> Void = {
+                    if let aVal = args.0, let bVal = args.1, let cVal = args.2 {
+                        action(combinator(aVal, bVal, cVal))
+                    }
+                }
+
+                let aBinding = a.bind({ (aVal) in
+                    args.0 = aVal
+                    propagate()
+                })
+                let bBinding = b.bind({ (bVal) in
+                    args.1 = bVal
+                    propagate()
+                })
+                let cBinding = c.bind({ (cVal) in
+                    args.2 = cVal
+                    propagate()
+                })
+
+                return Binding(bindings: [aBinding, bBinding, cBinding])
         })
     }
 }
