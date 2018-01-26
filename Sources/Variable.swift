@@ -10,7 +10,7 @@ public class Variable<T>: Bindable {
 
     public private(set) var value: T
 
-    private var nextSubscriptionId = 0
+    private var nextBindingId = 0
     private var actions: [Int : Action] = [:]
 
     public init(_ value: T) {
@@ -20,12 +20,12 @@ public class Variable<T>: Bindable {
     public func bind(_ action: @escaping Action) -> Binding {
         action(value)
 
-        let id = nextSubscriptionId
-        nextSubscriptionId += 1
+        let id = nextBindingId
+        nextBindingId += 1
 
         actions[id] = action
 
-        return Binding(unsubscribe: { [weak self] in
+        return Binding(unbind: { [weak self] in
             self?.actions[id] = nil
         })
     }

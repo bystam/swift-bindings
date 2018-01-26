@@ -6,20 +6,20 @@ import Foundation
 
 public final class Binding {
 
-    private var unsubscribe: (() -> Void)?
+    private var unbind: (() -> Void)?
     private var bindings: [Binding]
 
     init(bindings: [Binding]) {
         self.bindings = bindings
     }
 
-    init(unsubscribe: @escaping () -> Void) {
-        self.unsubscribe = unsubscribe
+    init(unbind: @escaping () -> Void) {
+        self.unbind = unbind
         self.bindings = []
     }
 
     deinit {
-        unsubscribe?()
+        unbind?()
     }
 
     /// Adds this subscription to the given bag.
