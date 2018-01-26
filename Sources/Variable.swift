@@ -35,3 +35,11 @@ public class Variable<T>: Bindable {
         actions.values.forEach { $0(value) }
     }
 }
+
+// for testing
+internal extension Variable {
+
+    var numberOfBindings: Int {
+        return actions.count
+    }
+}
