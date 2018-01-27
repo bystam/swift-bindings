@@ -132,6 +132,45 @@ public extension Computation { // Combinators
                 return Binding(bindings: [aBinding, bBinding, cBinding])
         })
     }
+
+    /// Create a `Computation` by combining four `Bindable`s and a computation closure.
+    public static func combining<A: Bindable, B: Bindable, C: Bindable, D: Bindable, T>(_ a: A, _ b: B, _ c: C, _ d: D, by combinator: @escaping (A.Element, B.Element, C.Element, D.Element) -> T) -> Computation<T> {
+
+        return Computation<T>(
+
+            compute: {
+                return combinator(a.value, b.value, c.value, d.value)
+            },
+
+            binder: { (action) -> Binding in
+
+                var args: (A.Element?, B.Element?, C.Element?, D.Element?) = (nil, nil, nil, nil)
+                let propagate: () -> Void = {
+                    if let aVal = args.0, let bVal = args.1, let cVal = args.2, let dVal = args.3 {
+                        action(combinator(aVal, bVal, cVal, dVal))
+                    }
+                }
+
+                let aBinding = a.bind({ (aVal) in
+                    args.0 = aVal
+                    propagate()
+                })
+                let bBinding = b.bind({ (bVal) in
+                    args.1 = bVal
+                    propagate()
+                })
+                let cBinding = c.bind({ (cVal) in
+                    args.2 = cVal
+                    propagate()
+                })
+                let dBinding = d.bind({ (dVal) in
+                    args.3 = dVal
+                    propagate()
+                })
+
+                return Binding(bindings: [aBinding, bBinding, cBinding, dBinding])
+        })
+    }
 }
 
 public extension Computation where T: Equatable {
