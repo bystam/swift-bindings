@@ -50,6 +50,23 @@ public class Computation<T>: Bindable {
 
 public extension Computation { // Combinators
 
+    /// Create a `Computation` from a `Bindable`s and a computation closure.
+    public static func from<A: Bindable, T>(_ a: A, by transform: @escaping (A.Element) -> T) -> Computation<T> {
+
+        return Computation<T>(
+
+            compute: {
+                return transform(a.value)
+            },
+
+            binder: { (action) -> Binding in
+                let aBinding = a.bind({ (aVal) in
+                    action(transform(aVal))
+                })
+                return Binding(bindings: [aBinding])
+        })
+    }
+
     /// Create a `Computation` by combining two `Bindable`s and a computation closure.
     public static func combining<A: Bindable, B: Bindable, T>(_ a: A, _ b: B, by combinator: @escaping (A.Element, B.Element) -> T) -> Computation<T> {
 
