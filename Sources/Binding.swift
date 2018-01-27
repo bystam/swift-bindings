@@ -6,10 +6,11 @@ import Foundation
 
 public final class Binding {
 
-    private var unbind: (() -> Void)?
-    private var bindings: [Binding]
+    private let unbind: (() -> Void)?
+    private let bindings: [Binding]
 
     init(bindings: [Binding]) {
+        self.unbind = nil
         self.bindings = bindings
     }
 
@@ -22,8 +23,7 @@ public final class Binding {
         unbind?()
     }
 
-    /// Adds this subscription to the given bag.
-    func bindLifetime(to bag: BindingBag) {
+    func unbind(with bag: BindingBag) {
         bag.bindings.append(self)
     }
 }

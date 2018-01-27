@@ -120,7 +120,7 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp.fulfill()
-        }.bindLifetime(to: bag)
+        }.unbind(with: bag)
 
         // Act
         aInt.set(10)
@@ -152,7 +152,7 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp.fulfill()
-        }.bindLifetime(to: bag)
+        }.unbind(with: bag)
 
         // Act
         aStruct.set(S(id: 3))
@@ -182,10 +182,10 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp1.fulfill()
-        }.bindLifetime(to: bag)
+        }.unbind(with: bag)
         sumComp.bind { (_) in
             exp2.fulfill()
-        }.bindLifetime(to: bag)
+        }.unbind(with: bag)
 
         // Act
         aInt.set(10)
@@ -250,7 +250,7 @@ class ComputationTests: XCTestCase {
         let deepComp = Computation<Int>.combining(sumComp1, sumComp2, by: { $0 + $1 })
 
         // Act
-        deepComp.bind { _ in }.bindLifetime(to: bag)
+        deepComp.bind { _ in }.unbind(with: bag)
 
         // Assert
         XCTAssertEqual(aInt.numberOfBindings, 2)
