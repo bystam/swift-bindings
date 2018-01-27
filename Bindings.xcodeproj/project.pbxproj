@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB26BD4B2019C8DB00DA36D7 /* Bindings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB26BD412019C8DB00DA36D7 /* Bindings.framework */; };
+		DB26BD4B2019C8DB00DA36D7 /* BindingsMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB26BD412019C8DB00DA36D7 /* BindingsMacOS.framework */; };
 		DB26BD502019C8DB00DA36D7 /* VariableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD4F2019C8DB00DA36D7 /* VariableTests.swift */; };
 		DB26BD522019C8DB00DA36D7 /* Bindings.h in Headers */ = {isa = PBXBuildFile; fileRef = DB26BD442019C8DB00DA36D7 /* Bindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB26BD5D2019C91300DA36D7 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5C2019C91300DA36D7 /* Binding.swift */; };
@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB26BD412019C8DB00DA36D7 /* Bindings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bindings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB26BD412019C8DB00DA36D7 /* BindingsMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BindingsMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB26BD442019C8DB00DA36D7 /* Bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bindings.h; sourceTree = "<group>"; };
 		DB26BD452019C8DB00DA36D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB26BD4A2019C8DB00DA36D7 /* BindingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BindingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB26BD4B2019C8DB00DA36D7 /* Bindings.framework in Frameworks */,
+				DB26BD4B2019C8DB00DA36D7 /* BindingsMacOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 		DB26BD422019C8DB00DA36D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB26BD412019C8DB00DA36D7 /* Bindings.framework */,
+				DB26BD412019C8DB00DA36D7 /* BindingsMacOS.framework */,
 				DB26BD4A2019C8DB00DA36D7 /* BindingsTests.xctest */,
 			);
 			name = Products;
@@ -123,9 +123,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DB26BD402019C8DB00DA36D7 /* Bindings */ = {
+		DB26BD402019C8DB00DA36D7 /* BindingsMacOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB26BD552019C8DB00DA36D7 /* Build configuration list for PBXNativeTarget "Bindings" */;
+			buildConfigurationList = DB26BD552019C8DB00DA36D7 /* Build configuration list for PBXNativeTarget "BindingsMacOS" */;
 			buildPhases = (
 				DB26BD3C2019C8DB00DA36D7 /* Sources */,
 				DB26BD3D2019C8DB00DA36D7 /* Frameworks */,
@@ -136,9 +136,9 @@
 			);
 			dependencies = (
 			);
-			name = Bindings;
+			name = BindingsMacOS;
 			productName = Bindings;
-			productReference = DB26BD412019C8DB00DA36D7 /* Bindings.framework */;
+			productReference = DB26BD412019C8DB00DA36D7 /* BindingsMacOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DB26BD492019C8DB00DA36D7 /* BindingsTests */ = {
@@ -192,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB26BD402019C8DB00DA36D7 /* Bindings */,
+				DB26BD402019C8DB00DA36D7 /* BindingsMacOS */,
 				DB26BD492019C8DB00DA36D7 /* BindingsTests */,
 			);
 		};
@@ -241,7 +241,7 @@
 /* Begin PBXTargetDependency section */
 		DB26BD4D2019C8DB00DA36D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB26BD402019C8DB00DA36D7 /* Bindings */;
+			target = DB26BD402019C8DB00DA36D7 /* BindingsMacOS */;
 			targetProxy = DB26BD4C2019C8DB00DA36D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -448,7 +448,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB26BD552019C8DB00DA36D7 /* Build configuration list for PBXNativeTarget "Bindings" */ = {
+		DB26BD552019C8DB00DA36D7 /* Build configuration list for PBXNativeTarget "BindingsMacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB26BD562019C8DB00DA36D7 /* Debug */,
