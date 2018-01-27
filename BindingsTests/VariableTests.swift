@@ -3,7 +3,7 @@
 //
 
 import XCTest
-@testable import Bindings
+@testable import BindingsMacOS
 
 class BindingsTests: XCTestCase {
 

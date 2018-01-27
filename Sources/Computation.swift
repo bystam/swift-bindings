@@ -4,6 +4,8 @@
 
 import Foundation
 
+/// A stateless `Bindable` that produces values through a computation
+/// based on a set of other `Bindable`s.
 public class Computation<T>: Bindable {
 
     public typealias Element = T
@@ -24,7 +26,10 @@ public class Computation<T>: Bindable {
         return binder(action)
     }
 
-    func distinct(by eq: @escaping (T, T) -> Bool) -> Computation<T> {
+    /// Creates a new computation like this, but where value changes
+    /// only will be posted if they are not equal according to the given
+    /// equality test closure.
+    public func distinct(by eq: @escaping (T, T) -> Bool) -> Computation<T> {
 
         return Computation<T>(
             compute: compute,
@@ -45,6 +50,7 @@ public class Computation<T>: Bindable {
 
 public extension Computation { // Combinators
 
+    /// Create a `Computation` by combining two `Bindable`s and a computation closure.
     public static func combining<A: Bindable, B: Bindable, T>(_ a: A, _ b: B, by combinator: @escaping (A.Element, B.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
@@ -75,6 +81,7 @@ public extension Computation { // Combinators
         })
     }
 
+    /// Create a `Computation` by combining three `Bindable`s and a computation closure.
     public static func combining<A: Bindable, B: Bindable, C: Bindable, T>(_ a: A, _ b: B, _ c: C, by combinator: @escaping (A.Element, B.Element, C.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
@@ -112,6 +119,7 @@ public extension Computation { // Combinators
 
 public extension Computation where T: Equatable {
 
+    /// Same as `distinct(by:)` where standard equality comparison (`==`)  is used.
     public func distinct() -> Computation<T> {
         return distinct(by: ==)
     }

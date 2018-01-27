@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// A stateful `Bindable` that wraps a single value.
 public class Variable<T>: Bindable {
 
     public typealias Element = T
@@ -30,6 +31,7 @@ public class Variable<T>: Bindable {
         })
     }
 
+    /// Set the value of this `Variable`, propagating the change to any bindings.
     public func set(_ value: T) {
         self.value = value
         actions.values.forEach { $0(value) }

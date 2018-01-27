@@ -3,16 +3,16 @@
 //
 
 import XCTest
-@testable import Bindings
+@testable import BindingsMacOS
 
 class ComputationTests: XCTestCase {
 
     var binding: Binding?
-    var bag = BindingBag()
+    var group = BindingGroup()
 
     override func setUp() {
         binding = nil
-        bag = BindingBag()
+        group = BindingGroup()
     }
 
     func testComputationInitialValue() {
@@ -120,7 +120,7 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp.fulfill()
-        }.unbind(with: bag)
+        }.unbind(with: group)
 
         // Act
         aInt.set(10)
@@ -152,7 +152,7 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp.fulfill()
-        }.unbind(with: bag)
+        }.unbind(with: group)
 
         // Act
         aStruct.set(S(id: 3))
@@ -182,10 +182,10 @@ class ComputationTests: XCTestCase {
 
         sumComp.bind { (_) in
             exp1.fulfill()
-        }.unbind(with: bag)
+        }.unbind(with: group)
         sumComp.bind { (_) in
             exp2.fulfill()
-        }.unbind(with: bag)
+        }.unbind(with: group)
 
         // Act
         aInt.set(10)
@@ -250,7 +250,7 @@ class ComputationTests: XCTestCase {
         let deepComp = Computation<Int>.combining(sumComp1, sumComp2, by: { $0 + $1 })
 
         // Act
-        deepComp.bind { _ in }.unbind(with: bag)
+        deepComp.bind { _ in }.unbind(with: group)
 
         // Assert
         XCTAssertEqual(aInt.numberOfBindings, 2)

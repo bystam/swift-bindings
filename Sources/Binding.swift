@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// Represents a binding to a `Bindable` value. Deallocate to stop.
 public final class Binding {
 
     private let unbind: (() -> Void)?
@@ -23,11 +24,12 @@ public final class Binding {
         unbind?()
     }
 
-    func unbind(with bag: BindingBag) {
-        bag.bindings.append(self)
+    /// Add this to a group of bindings.
+    public func unbind(with group: BindingGroup) {
+        group.bindings.append(self)
     }
 }
 
-public final class BindingBag {
+public final class BindingGroup {
     fileprivate var bindings: [Binding] = []
 }
