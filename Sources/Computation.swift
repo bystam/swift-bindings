@@ -1,5 +1,5 @@
 //
-//  Copyright © 2018 Frallan. All rights reserved.
+//  Copyright © 2018 Frallworks. All rights reserved.
 //
 
 import Foundation

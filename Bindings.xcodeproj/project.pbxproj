@@ -375,7 +375,7 @@
 				INFOPLIST_FILE = Bindings/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.frallan.Bindings;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallworks.Bindings;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -399,7 +399,7 @@
 				INFOPLIST_FILE = Bindings/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.frallan.Bindings;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallworks.Bindings;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -415,7 +415,7 @@
 				DEVELOPMENT_TEAM = 5W98C573EH;
 				INFOPLIST_FILE = BindingsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.frallan.BindingsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallworks.BindingsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -430,7 +430,7 @@
 				DEVELOPMENT_TEAM = 5W98C573EH;
 				INFOPLIST_FILE = BindingsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.frallan.BindingsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallworks.BindingsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};

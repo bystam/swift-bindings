@@ -3,7 +3,7 @@
 //  Bindings
 //
 //  Created by Fredrik Bystam on 2018-01-25.
-//  Copyright © 2018 Frallan. All rights reserved.
+//  Copyright © 2018 Frallworks. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
