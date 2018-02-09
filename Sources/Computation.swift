@@ -14,8 +14,22 @@ public class Computation<T>: Property {
     private let binder: (@escaping Action) -> Binding
 
     private init(compute: @escaping () -> T, binder: @escaping (@escaping Action) -> Binding) {
-        self.compute = compute
-        self.binder = binder
+        var cachedValue: T? = nil
+
+        self.compute = {
+            if let cached = cachedValue {
+                return cached
+            }
+            cachedValue = compute()
+            return cachedValue!
+        }
+
+        self.binder = { (action) -> Binding in
+            return binder({ (value) in
+                cachedValue = nil
+                action(value)
+            })
+        }
     }
 
     public var value: T {
