@@ -4,9 +4,9 @@
 
 import Foundation
 
-/// A stateless `Bindable` that produces values through a computation
-/// based on a set of other `Bindable`s.
-public class Computation<T>: Bindable {
+/// A stateless `Property` that produces values through a computation
+/// based on a set of other `Property`s.
+public class Computation<T>: Property {
 
     public typealias Element = T
 
@@ -50,8 +50,8 @@ public class Computation<T>: Bindable {
 
 public extension Computation { // Combinators
 
-    /// Create a `Computation` from a `Bindable`s and a computation closure.
-    public static func from<A: Bindable, T>(_ a: A, by transform: @escaping (A.Element) -> T) -> Computation<T> {
+    /// Create a `Computation` from a `Property`s and a computation closure.
+    public static func from<A: Property, T>(_ a: A, by transform: @escaping (A.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
 
@@ -67,8 +67,8 @@ public extension Computation { // Combinators
         })
     }
 
-    /// Create a `Computation` by combining two `Bindable`s and a computation closure.
-    public static func combining<A: Bindable, B: Bindable, T>(_ a: A, _ b: B, by combinator: @escaping (A.Element, B.Element) -> T) -> Computation<T> {
+    /// Create a `Computation` by combining two `Property`s and a computation closure.
+    public static func combining<A: Property, B: Property, T>(_ a: A, _ b: B, by combinator: @escaping (A.Element, B.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
 
@@ -98,8 +98,8 @@ public extension Computation { // Combinators
         })
     }
 
-    /// Create a `Computation` by combining three `Bindable`s and a computation closure.
-    public static func combining<A: Bindable, B: Bindable, C: Bindable, T>(_ a: A, _ b: B, _ c: C, by combinator: @escaping (A.Element, B.Element, C.Element) -> T) -> Computation<T> {
+    /// Create a `Computation` by combining three `Property`s and a computation closure.
+    public static func combining<A: Property, B: Property, C: Property, T>(_ a: A, _ b: B, _ c: C, by combinator: @escaping (A.Element, B.Element, C.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
 
@@ -133,8 +133,8 @@ public extension Computation { // Combinators
         })
     }
 
-    /// Create a `Computation` by combining four `Bindable`s and a computation closure.
-    public static func combining<A: Bindable, B: Bindable, C: Bindable, D: Bindable, T>(_ a: A, _ b: B, _ c: C, _ d: D, by combinator: @escaping (A.Element, B.Element, C.Element, D.Element) -> T) -> Computation<T> {
+    /// Create a `Computation` by combining four `Property`s and a computation closure.
+    public static func combining<A: Property, B: Property, C: Property, D: Property, T>(_ a: A, _ b: B, _ c: C, _ d: D, by combinator: @escaping (A.Element, B.Element, C.Element, D.Element) -> T) -> Computation<T> {
 
         return Computation<T>(
 

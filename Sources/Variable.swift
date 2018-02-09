@@ -4,8 +4,8 @@
 
 import Foundation
 
-/// A stateful `Bindable` that wraps a single value.
-public class Variable<T>: Bindable {
+/// A stateful `Property` that wraps a single value.
+public class Variable<T>: Property {
 
     public typealias Element = T
 

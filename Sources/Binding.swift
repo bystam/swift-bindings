@@ -4,7 +4,7 @@
 
 import Foundation
 
-/// Represents a binding to a `Bindable` value. Deallocate to stop.
+/// Represents a binding to a `Property` value. Deallocate to stop.
 public final class Binding {
 
     private let unbind: (() -> Void)?

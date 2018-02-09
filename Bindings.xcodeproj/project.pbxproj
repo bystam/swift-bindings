@@ -11,9 +11,14 @@
 		DB26BD502019C8DB00DA36D7 /* VariableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD4F2019C8DB00DA36D7 /* VariableTests.swift */; };
 		DB26BD522019C8DB00DA36D7 /* Bindings.h in Headers */ = {isa = PBXBuildFile; fileRef = DB26BD442019C8DB00DA36D7 /* Bindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB26BD5D2019C91300DA36D7 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5C2019C91300DA36D7 /* Binding.swift */; };
-		DB26BD5F2019C91A00DA36D7 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5E2019C91A00DA36D7 /* Bindable.swift */; };
+		DB26BD5F2019C91A00DA36D7 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5E2019C91A00DA36D7 /* Property.swift */; };
 		DB26BD612019C92300DA36D7 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD602019C92300DA36D7 /* Variable.swift */; };
 		DB26BD632019C92900DA36D7 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD622019C92900DA36D7 /* Computation.swift */; };
+		DB274C6E2021E86E0024EDAC /* BindingsiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DB274C6C2021E86E0024EDAC /* BindingsiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB274C722021E8810024EDAC /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5E2019C91A00DA36D7 /* Property.swift */; };
+		DB274C732021E8810024EDAC /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD5C2019C91300DA36D7 /* Binding.swift */; };
+		DB274C742021E8810024EDAC /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD602019C92300DA36D7 /* Variable.swift */; };
+		DB274C752021E8810024EDAC /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26BD622019C92900DA36D7 /* Computation.swift */; };
 		DBDC04512019F7030026824A /* ComputationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC04502019F7030026824A /* ComputationTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,9 +40,12 @@
 		DB26BD4F2019C8DB00DA36D7 /* VariableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableTests.swift; sourceTree = "<group>"; };
 		DB26BD512019C8DB00DA36D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB26BD5C2019C91300DA36D7 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
-		DB26BD5E2019C91A00DA36D7 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		DB26BD5E2019C91A00DA36D7 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		DB26BD602019C92300DA36D7 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		DB26BD622019C92900DA36D7 /* Computation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computation.swift; sourceTree = "<group>"; };
+		DB274C6A2021E86E0024EDAC /* BindingsiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BindingsiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB274C6C2021E86E0024EDAC /* BindingsiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingsiOS.h; sourceTree = "<group>"; };
+		DB274C6D2021E86E0024EDAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBDC04502019F7030026824A /* ComputationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB274C662021E86E0024EDAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +81,7 @@
 				DB26BD5B2019C8FA00DA36D7 /* Sources */,
 				DB26BD432019C8DB00DA36D7 /* Bindings */,
 				DB26BD4E2019C8DB00DA36D7 /* BindingsTests */,
+				DB274C6B2021E86E0024EDAC /* BindingsiOS */,
 				DB26BD422019C8DB00DA36D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +91,7 @@
 			children = (
 				DB26BD412019C8DB00DA36D7 /* BindingsMacOS.framework */,
 				DB26BD4A2019C8DB00DA36D7 /* BindingsTests.xctest */,
+				DB274C6A2021E86E0024EDAC /* BindingsiOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,12 +118,21 @@
 		DB26BD5B2019C8FA00DA36D7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DB26BD5E2019C91A00DA36D7 /* Bindable.swift */,
+				DB26BD5E2019C91A00DA36D7 /* Property.swift */,
 				DB26BD5C2019C91300DA36D7 /* Binding.swift */,
 				DB26BD602019C92300DA36D7 /* Variable.swift */,
 				DB26BD622019C92900DA36D7 /* Computation.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		DB274C6B2021E86E0024EDAC /* BindingsiOS */ = {
+			isa = PBXGroup;
+			children = (
+				DB274C6C2021E86E0024EDAC /* BindingsiOS.h */,
+				DB274C6D2021E86E0024EDAC /* Info.plist */,
+			);
+			path = BindingsiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +143,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB26BD522019C8DB00DA36D7 /* Bindings.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB274C672021E86E0024EDAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB274C6E2021E86E0024EDAC /* BindingsiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +193,24 @@
 			productReference = DB26BD4A2019C8DB00DA36D7 /* BindingsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DB274C692021E86E0024EDAC /* BindingsiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB274C712021E86E0024EDAC /* Build configuration list for PBXNativeTarget "BindingsiOS" */;
+			buildPhases = (
+				DB274C652021E86E0024EDAC /* Sources */,
+				DB274C662021E86E0024EDAC /* Frameworks */,
+				DB274C672021E86E0024EDAC /* Headers */,
+				DB274C682021E86E0024EDAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BindingsiOS;
+			productName = BindingsiOS;
+			productReference = DB274C6A2021E86E0024EDAC /* BindingsiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +230,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					DB274C692021E86E0024EDAC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = DB26BD3B2019C8DB00DA36D7 /* Build configuration list for PBXProject "Bindings" */;
@@ -193,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				DB26BD402019C8DB00DA36D7 /* BindingsMacOS */,
+				DB274C692021E86E0024EDAC /* BindingsiOS */,
 				DB26BD492019C8DB00DA36D7 /* BindingsTests */,
 			);
 		};
@@ -213,6 +270,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB274C682021E86E0024EDAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -220,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB26BD5F2019C91A00DA36D7 /* Bindable.swift in Sources */,
+				DB26BD5F2019C91A00DA36D7 /* Property.swift in Sources */,
 				DB26BD612019C92300DA36D7 /* Variable.swift in Sources */,
 				DB26BD5D2019C91300DA36D7 /* Binding.swift in Sources */,
 				DB26BD632019C92900DA36D7 /* Computation.swift in Sources */,
@@ -233,6 +297,17 @@
 			files = (
 				DB26BD502019C8DB00DA36D7 /* VariableTests.swift in Sources */,
 				DBDC04512019F7030026824A /* ComputationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB274C652021E86E0024EDAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB274C722021E8810024EDAC /* Property.swift in Sources */,
+				DB274C732021E8810024EDAC /* Binding.swift in Sources */,
+				DB274C742021E8810024EDAC /* Variable.swift in Sources */,
+				DB274C752021E8810024EDAC /* Computation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +511,53 @@
 			};
 			name = Release;
 		};
+		DB274C6F2021E86E0024EDAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5W98C573EH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BindingsiOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallware.BindingsiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB274C702021E86E0024EDAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5W98C573EH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BindingsiOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.frallware.BindingsiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -462,6 +584,15 @@
 			buildConfigurations = (
 				DB26BD592019C8DB00DA36D7 /* Debug */,
 				DB26BD5A2019C8DB00DA36D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB274C712021E86E0024EDAC /* Build configuration list for PBXNativeTarget "BindingsiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB274C6F2021E86E0024EDAC /* Debug */,
+				DB274C702021E86E0024EDAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
