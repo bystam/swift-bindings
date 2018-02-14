@@ -32,4 +32,6 @@ public final class Binding {
 
 public final class BindingGroup {
     fileprivate var bindings: [Binding] = []
+
+    public init() {}
 }
