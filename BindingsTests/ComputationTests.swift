@@ -39,6 +39,20 @@ class ComputationTests: XCTestCase {
         XCTAssertEqual(sumComp.value, 10 + 5)
     }
 
+    func testComputationValueChange_MultipleChanges() {
+        // Arrange
+        let aInt = Variable<Int>(3)
+        let bInt = Variable<Int>(5)
+        let sumComp = Computation<Int>.combining(aInt, bInt, by: { $0 + $1 })
+
+        // Act
+        // Assert
+        aInt.set(10)
+        XCTAssertEqual(sumComp.value, 10 + 5)
+        aInt.set(20)
+        XCTAssertEqual(sumComp.value, 20 + 5)
+    }
+
     func testComputationInitialValue_Deep() {
         // Arrange
         let aInt = Variable<Int>(3)
